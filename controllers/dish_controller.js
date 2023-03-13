@@ -9,7 +9,6 @@ const ensureLoggedIn = require("./../middlewares/ensure_logged_in")
 
 router.get(["/", "", "/home"], ensureLoggedIn, (req, res) => {
     let sql = "select * from dishes order by id desc;";
-    console.log(sql);
     db.query(sql, (err, dbRes) => {
         if (err) {
             console.log(err);
@@ -24,8 +23,9 @@ router.get("/dishes/new", ensureLoggedIn, (req, res) => {
 })
 
 // routes is the http method + path
-router.post("/dishes", ensureLoggedIn, (req, res) => {
-    const sql = `insert into dishes (title, image_url, venue, city, postDateTime, user_id) values ('${req.body.title}', '${req.body.image_url}', '${req.body.venue}', '${req.body.city}', CURRENT_TIMESTAMP, ${res.locals.currentUser.id});`;
+router.post("/dishes", (req, res) => {
+    const sql = `insert into dishes (title, image_url, venue, city, postDateTime) values ('${req.body.title}', '${req.body.image_url}', '${req.body.venue}', '${req.body.city}', CURRENT_TIMESTAMP);`;
+    console.log(sql);
     db.query(sql, (err, dbRes) => {
         res.redirect("/")
     })
