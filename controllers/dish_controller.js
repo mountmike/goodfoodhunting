@@ -7,7 +7,7 @@ const ensureLoggedIn = require("./../middlewares/ensure_logged_in")
 
 
 
-router.get(["/", "", "/home"], (req, res) => {
+router.get(["/", "", "/home"], ensureLoggedIn, (req, res) => {
     let sql = "select * from dishes order by id desc;";
     console.log(sql);
     db.query(sql, (err, dbRes) => {
@@ -24,7 +24,7 @@ router.get("/dishes/new", ensureLoggedIn, (req, res) => {
 })
 
 // routes is the http method + path
-router.post("/dishes", (req, res) => {
+router.post("/dishes", ensureLoggedIn, (req, res) => {
     const sql = `insert into dishes (title, image_url, venue, city, postDateTime, user_id) values ('${req.body.title}', '${req.body.image_url}', '${req.body.venue}', '${req.body.city}', CURRENT_TIMESTAMP, ${res.locals.currentUser.id});`;
     db.query(sql, (err, dbRes) => {
         res.redirect("/")
@@ -40,7 +40,7 @@ router.get("/dishes/:dishID/edit", ensureLoggedIn, (req, res) => {
     });
 })
 
-router.put("/dishes/:dishID",  (req, res) => {
+router.put("/dishes/:dishID", ensureLoggedIn, (req, res) => {
     const sql = `update dishes set title = '${req.body.title}', image_url = '${req.body.image_url}', venue = '${req.body.venue}', city = '${req.body.city}' where id = ${req.body.dishID};`;
     console.log("sql:", sql);
     db.query(sql, (err, dbRes) => {
@@ -50,20 +50,12 @@ router.put("/dishes/:dishID",  (req, res) => {
 })
 
 // new DELETE method override
-router.delete("/dishes",  (req, res) => {
+router.delete("/dishes", ensureLoggedIn, (req, res) => {
     const sql = `DELETE FROM dishes WHERE id = ${req.body.dish_id}`
     db.query(sql, (err, dbResponse) => {
         res.redirect("/")
     })
 })
-
-// old POST delete
-// router.post("/delete_dish", (req, res) => {
-//     const sql = `DELETE FROM dishes WHERE id = ${req.body.dish_id}`
-//     db.query(sql, (err, dbResponse) => {
-//         res.redirect("/")
-//     })
-// })
 
 router.get("/dishes/:dishID", ensureLoggedIn,  (req, res) => {
     let dishID = req.params.dishID;
