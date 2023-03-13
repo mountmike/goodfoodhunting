@@ -201,3 +201,14 @@ h4, h5 {
     display: flex;
     justify-content: space-between;
 }
+
+.newUser {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.newUser > p {
+    color: var(--Ebony);
+}

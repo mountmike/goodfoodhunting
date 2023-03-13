@@ -24,6 +24,7 @@ const db = require("./db")
 
 // configs
 app.set("view engine", "ejs");
+app.set("layout layout_login", false)
 app.use(expressLayouts);
 app.use(express.static("public"));
 
@@ -67,7 +68,7 @@ app.use(viewHelpers);
 
 app.use("/", sessionController)
 app.use("/", dishController)
-app.use("/",  userController)
+app.use("/user",  userController)
 
 app.listen(port, () => {
     console.log(`now listening on ${port}`);
