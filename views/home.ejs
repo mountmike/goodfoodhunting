@@ -1,0 +1,27 @@
+
+
+
+<div class="latest-dishes">
+    <% for (let dish of dishes) { %>
+        <a href="/dishes/<%= dish.id %>">
+            <article>
+                <figure>
+                    <img src="<%= dish.image_url %>" alt="<%= dish.title %>">
+                </figure>
+                <figcaption>
+                    <div class="top">
+                        <h1><%= dish.title %></h1>
+                        <h2>at <%= dish.venue %></h2>
+                    </div>
+                    <div class="bottom">
+                        <p><%= dish.postdatetime %></p>
+                        <p><%= dish.city %></p>
+                    </div>
+                </figcaption>
+            </article>
+        </a>
+    <% } %>
+</div>
+
+
+

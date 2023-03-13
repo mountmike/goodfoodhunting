@@ -1,0 +1,14 @@
+<h1>Edit Dish</h1>
+<form action="/dishes/<%= dish.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <label for="">title</label>
+    <input type="text" name="title" value="<%= dish.title %>">
+    <label for="">img url</label>
+    <input type="text" name="image_url" value="<%= dish.image_url %>">
+    <label for="">venue</label>
+    <input type="text" name="venue" value="<%= dish.venue %>">
+    <label for="">city</label>
+    <input type="text" name="city" value="<%= dish.city %>">
+    <input type="hidden" name="postdatetime" value="CURRENT_TIMESTAMP">
+    <button>Update</button>
+</form>

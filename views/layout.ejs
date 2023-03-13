@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/client.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="main-header">
+            <% if (isLoggedIn()) { %>
+            <form action="/sessions" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button>logout</button>
+            </form>
+            <h6>logged in as <%= currentUser.email %></h6>
+            <% } else { %>
+                <a href="/login">login</a>
+            <% } %>
+        </div>
+        <img class="logo" src="/images/LOGO_DALLE.png" alt="">
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="/dishes/new">Share New Dish</a></li>
+                <form class="inline" action="/search" method="get">
+                    <input id="goBtn" type="text" name="name" placeholder="Search">
+                    <button id="goBtn">Go</button>
+                </form>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <%- body %>
+    </main>
+    <footer>
+        <p>&copy; Michael Tharratt</p>
+    </footer>
+</body>
+</html>

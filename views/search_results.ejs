@@ -1,0 +1,25 @@
+<h3>Search Results</h3>
+<div class="latest-dishes">
+    <% for (let dish of dishes) { %>
+        <a href="/dish/<%= dish.id %>">
+            <article>
+                <figure>
+                    <img src="<%= dish.image_url %>" alt="<%= dish.title %>">
+                </figure>
+                <figcaption>
+                    <div class="top">
+                        <h1><%= dish.title %></h1>
+                        <h2>at <%= dish.venue %></h2>
+                    </div>
+                    <div class="bottom">
+                        <p><%= dish.postdatetime.toLocaleString() %></p>
+                        <p><%= dish.city %></p>
+                    </div>
+                </figcaption>
+            </article>
+        </a>
+    <% } %>
+</div>
+
+
+

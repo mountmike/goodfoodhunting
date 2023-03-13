@@ -1,0 +1,16 @@
+<div class="asdf">
+    <img id="detailsIMG" src="<%= dish.image_url %>" alt="">
+    <div class="dish-details-wrapper">
+        <h1><%= dish.title %></h1>
+        <h4>Venue: <%= dish.venue %></h4>
+        <h4>City: <%= dish.city %></h4>
+        <h5>Date Posted: <%= dish.postdatetime %></h5>
+        <form action="/dishes" method="post">
+            <input type="hidden" name="dish_id" value="<%= dish.id %>">
+            <input type="hidden" name="_method" value="delete">
+            <button>delete</button>
+        </form>
+        <a href="/dishes/<%= dish.id %>/edit"><button id="editbtn">edit</button></a>
+        
+    </div>
+</div>

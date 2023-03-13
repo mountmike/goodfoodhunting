@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+:root {
+    --Parchment: #F1EAD3;
+    --Ebony: #0D161E;
+    --Creekclay: #827A61;
+    --Potterclay: #815939;
+    --Blue: #488EF4;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    font-family: 'Oxygen';
+    background-color: var(--Parchment);
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    background-color: var(--Parchment);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 30%;
+}
+
+nav {
+    width: 100%;
+    border: 2px solid white;
+}
+
+nav > ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+nav > ul > li {
+    list-style-type: none;
+    font-size: 1.5em;
+    display: inline;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--Potterclay);
+}
+  
+
+  a:visited {
+    color: var(--Creekclay);
+}
+  
+
+  a:hover {
+    color: var(--Blue);
+}
+
+main {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+    margin: 10px;
+}
+
+.latest-dishes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer {
+    bottom: 0;
+    height: 10px;
+}
+
+article {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    filter: drop-shadow(3px 1px 4px grey);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px; 
+}
+
+figure {
+    width: 100%;
+    margin: 0;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+figure > img {
+    width: 100%;
+    height: 300px;
+}
+
+figcaption {
+    width: 100%;
+    margin: 0;
+    background-color: var(--Creekclay);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 1.5em;
+    color: var(--Potterclay);
+    margin: 10px 0px 0px 10px;
+}
+
+h2 {
+    font-size: 1em;
+    color: var(--Parchment);
+    margin: 10px 0px 0px 10px;
+}
+
+h3 {
+    color: var(--Ebony);
+    font-size: em;
+}
+
+p {
+    color: var(--Parchment);
+    margin: 10px;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+button {
+    width: 100px;
+    margin: 10px;
+}
+
+#editbtn {
+    margin-left: 20px;
+}
+
+.dish-details-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 10%;
+}
+
+#detailsIMG {
+    width: 500px;
+}
+
+h4, h5 {
+    margin: 5px 10px;
+}
+
+.asdf {
+    display: flex;
+}
+
+.inline {
+    display: inline;
+    margin: 0;
+}
+
+#goBtn {
+    color: var(--Potterclay);
+    font-family: 'Oxygen';
+    font-size: 1em;
+    margin: 0;
+}
+
+.main-header {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
