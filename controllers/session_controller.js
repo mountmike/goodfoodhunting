@@ -2,9 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const { Pool } = require("pg")
-const db = new Pool({
-    database: "goodfoodhunting",
-})
+const db = require("./../db")
 
 
 router.get("/login", (req, res) => {
@@ -14,7 +12,6 @@ router.get("/login", (req, res) => {
 router.post("/sessions", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
-     
     const sql = `SELECT * from users where email = '${email}';`
     db.query(sql, (err, dbResponse) => {
         if (dbResponse.rows.length === 0) {
@@ -22,8 +19,8 @@ router.post("/sessions", (req, res) => {
         } else {
 
             const user = dbResponse.rows[0]
-
-            bcrypt.compare(password, dbResponse.rows[0].password_digest, (err, result) => {
+            bcrypt.compare(password, user.password_digest, (err, result) => {
+                console.log(result, user.password_digest);
                 if (result) {
                     req.session.userID = user.id
                     req.session.email = user.email

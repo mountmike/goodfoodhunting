@@ -8,8 +8,8 @@ const ensureLoggedIn = require("./../middlewares/ensure_logged_in")
 
 
 router.get(["/", "", "/home"], (req, res) => {
-    console.log(req.user);
     let sql = "select * from dishes order by id desc;";
+    console.log(sql);
     db.query(sql, (err, dbRes) => {
         if (err) {
             console.log(err);
