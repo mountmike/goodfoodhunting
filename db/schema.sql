@@ -3,7 +3,7 @@ CREATE DATABASE goodfoodhunting;
 CREATE TABLE dishes (
     id SERIAL PRIMARY KEY,
     title TEXT,
-    image_url TEXT,
+    image_url TEXT
 );
 
 insert into dishes (title, image_url) values ('Spagbol', 'https://veganonboard.com/wp-content/uploads/2021/05/vegan-spaghetti-bolognese-square.jpeg');
@@ -32,7 +32,7 @@ CREATE TABLE users (
     password_digest text
 );
 
-insert into users (email, password) values ('micktharratt@hotmail.com', '123');
+insert into users (email, password_digest) values ('micktharratt@hotmail.com', '$2b$10$gZnGWScQnR.WQaZ3BcVK/urVgeIAfcSO.85bTXjY8Bdp7c4Kj7q32');
 insert into users (email, password) values ('laurelkirkwood@live.com', 'abc');
 
 ALTER TABLE dishes ADD COLUMN user_id INTEGER;

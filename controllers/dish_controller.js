@@ -7,7 +7,7 @@ const ensureLoggedIn = require("./../middlewares/ensure_logged_in")
 
 
 
-router.get(["/", "", "/home"], ensureLoggedIn, (req, res) => {
+router.get(["/", "", "/home"], (req, res) => {
     console.log(req.user);
     let sql = "select * from dishes order by id desc;";
     db.query(sql, (err, dbRes) => {
